@@ -47,7 +47,7 @@
     </div>
 
     <div id="table">
-        <form action="${pageContext.request.contextPath}/prod/save.action" enctype="multipart/form-data"
+        <form th:action="@{/prod/save.action}" action="#" enctype="multipart/form-data"
               method="post" id="myform">
             <table>
                 <tr>
@@ -111,7 +111,7 @@
                         <!--/*@thymesVar id="ptlist" type="com.gnaixeuy.mokeymi"*/-->
                         <label>
                             <select name="typeId" th:each="type : ${ptlist}">
-                                    <option value="${type.typeId}">${type.typeName}</option>
+                                <option value="${type.typeId}">${type.typeName}</option>
                             </select>
                         </label>
                     </td>
