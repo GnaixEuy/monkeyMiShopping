@@ -111,7 +111,7 @@
                         <!--/*@thymesVar id="ptlist" type="com.gnaixeuy.mokeymi"*/-->
                         <label>
                             <select name="typeId" th:each="type : ${ptlist}">
-                                <option value="${type.typeId}">${type.typeName}</option>
+                                <option th:value="${type.typeId}">${type.typeName}</option>
                             </select>
                         </label>
                     </td>

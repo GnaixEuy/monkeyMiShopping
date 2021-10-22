@@ -22,7 +22,8 @@
         </div>
         <div id="top2"></div>
         <div id="top3">
-            <span>欢迎您，${name}</span>
+            <span>欢迎您，<!--/*@thymesVar id="name" type="java.lang.String"*/-->
+            <span th:text="${name}"></span></span>
         </div>
     </div>
     <!--下部分-->
