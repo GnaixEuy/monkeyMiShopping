@@ -21,22 +21,27 @@ public class TestPageResource {
 	}
 
 	@RequestMapping(value = "/test_addProduct.html")
-	public String index() {
+	public String toIndex() {
 		return "/admin/addproduct.html";
 	}
 
 	@RequestMapping(value = "/test_main.html")
-	public String tomain() {
+	public String toMain() {
 		return "/admin/main.html";
 	}
 
+	@RequestMapping(value = "/test_login.html")
+	public String toLogin(){
+		return "/admin/login.html";
+	}
+
 	@RequestMapping(value = "/test_register.html")
-	public String regist(){
+	public String toRegist(){
 		return "/admin/register.html";
 	}
 
 	@RequestMapping(value = "/test_update.html")
-	public String update(){
+	public String toUpdate(){
 		return "/admin/update.html";
 	}
 

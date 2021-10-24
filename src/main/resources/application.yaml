@@ -8,9 +8,15 @@ spring:
     check-template: true
     prefix: classpath:/templates
     encoding: UTF-8
-
+  banner:
+    charset: utf-8
 
 server:
   port: 8888
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
   tomcat:
     uri-encoding: utf-8
