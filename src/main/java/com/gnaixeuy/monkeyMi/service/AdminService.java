@@ -1,5 +1,7 @@
 package com.gnaixeuy.monkeyMi.service;
 
+import com.gnaixeuy.monkeyMi.pojo.Admin;
+
 /**
  * <img src="http://blog.GnaixEuy.cn/wp-content/uploads/2021/08/bug.jpeg"/>
  *
@@ -13,5 +15,5 @@ public interface AdminService {
 	 *
 	 * @return loginState
 	 */
-	String login(String name, String pwd);
+	Admin login(String name, String pwd);
 }

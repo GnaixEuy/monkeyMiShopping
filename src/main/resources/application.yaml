@@ -38,5 +38,5 @@ server:
     uri-encoding: utf-8
 
 mybatis:
-  mapper-locations: classpath:com/gnaixeuy/monkeymi/mapper/*.xml
+  mapper-locations: classpath:com/gnaixeuy/monkeyMi/mapper/*.xml
   type-aliases-package: com.gnaixeuy.monkeymi.pojo
