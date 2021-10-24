@@ -1,9 +1,25 @@
 spring:
   datasource:
-    name: root
-    password: 123456
-    url: jdbc:mysql://localhost:3306/xiaomissm?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      password: 123456
+      username: root
+      url: jdbc:mysql://localhost:3306/xiaomissm?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+      filters: stat
+      max-active: 20
+      initial-size: 1
+      max-wait: 60000
+      min-idle: 1
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 'x'
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-open-prepared-statements: 20
+
   thymeleaf:
     check-template: true
     prefix: classpath:/templates
@@ -20,3 +36,7 @@ server:
       enabled: true
   tomcat:
     uri-encoding: utf-8
+
+mybatis:
+  mapper-locations: classpath:com/gnaixeuy/monkeymi/mapper/*.xml
+  type-aliases-package: com.gnaixeuy.monkeymi.pojo
