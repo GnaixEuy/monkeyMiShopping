@@ -29,7 +29,7 @@ public class AdminAction {
 			return "/admin/login.html";
 		}
 		System.out.println("到这了");
-		Admin admin = this.adminService.login(1);
+		Admin admin = this.adminService.login(name,pwd);
 		System.out.println("到这了2");
 		if (admin != null) {
 			System.out.println("登入成功");

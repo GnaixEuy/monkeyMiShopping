@@ -33,11 +33,14 @@ public class AdminServiceImpl implements AdminService {
 	public Admin login(String name, String pwd) {
 		final AdminExample adminExample = new AdminExample();
 		final AdminExample.Criteria criteria = adminExample.createCriteria().andANameEqualTo(name);
-		System.out.println("是不是null"+this.adminMapper);
 		final List<Admin> admins = this.adminMapper.selectByExample(adminExample);
 		if (admins.size() > 0) {
+			System.out.println("list size:" + admins.size());
 			final Admin admin = admins.get(0);
 			final String miPwd = MD5Util.getMD5(pwd);
+			System.out.println("admin.getaName() = " + admin.getaName());
+			System.out.println("admin.getaPass() = " + admin.getaPass());
+			System.out.println("miPwd = " + miPwd);
 			if (miPwd != null && miPwd.equals(admin.getaPass())) {
 				return admin;
 			}
@@ -46,8 +49,8 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public Admin login(Integer id){
-		System.out.println(this.adminMapper +"mapper被填充");
+	public Admin login(Integer id) {
+		System.out.println(this.adminMapper + "mapper被填充");
 		final Admin admin = this.adminMapper.selectByPrimaryKey(id);
 		System.out.println(admin.getaName());
 		System.out.println(admin.getaPass());
