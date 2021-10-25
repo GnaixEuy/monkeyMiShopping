@@ -10,6 +10,11 @@
     <script type="text/javascript" th:src="@{/js/jquery-3.3.1.js}"></script>
     <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
     <title>主界面</title>
+    <style>
+        a > li > span {
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
@@ -22,8 +27,9 @@
         </div>
         <div id="top2"></div>
         <div id="top3">
-            <span>欢迎您，<!--/*@thymesVar id="name" type="java.lang.String"*/-->
-            <span th:text="${name}"></span></span>
+            <span>欢迎您，<!--/*@thymesVar id="name" type="com.gnaixeuy.monkeyMi.pojo.Admin"*/-->
+            <span th:text="${session.admin.getaName()}">nil</span>
+            </span>
         </div>
     </div>
     <!--下部分-->
@@ -32,34 +38,46 @@
         <div id="bleft">
             <div id="ltop">
                 <div id="lts">
-                    <img th:src="@{/images/logo.jpg}" alt="logo"/><br/>
-                    <p style="text-align: center;">随机访客</p>
+                    <img th:src="@{/images/logo.jpg}" alt="logo" src="#"/><br/>
+                    <p style="text-align: center;" th:text="${session.admin.getaName()}">nil</p>
                 </div>
             </div>
             <div id="lbottom">
                 <ul>
-                    <a href="#" th:href="@{/prod/split.action}" target="myright">
-                        <li class="two"><span class="glyphicon glyphicon-book" style="color: white;"></span>&nbsp;&nbsp;&nbsp;&nbsp;商品管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-                                class="glyphicon glyphicon-play" style="color: white;"></span></li>
-                    </a>
-                    <a href="#" th:href="@{/admin/err.html}" target="myright">
-                        <li class="one"><span class="glyphicon glyphicon-sort" style="color: white;"></span>&nbsp;&nbsp;&nbsp;&nbsp;订单管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-                                class="glyphicon glyphicon-play" style="color: white;"></span></li>
-                    </a>
-                    <a href="#" th:href="@{/admin/err.html}" target="myright">
-                        <li class="one"><span class="glyphicon glyphicon-user" style="color: white;"></span>&nbsp;&nbsp;&nbsp;&nbsp;用户管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-                                class="glyphicon glyphicon-play" style="color: white;"></span></li>
-                    </a>
-                    <a href="#" th:href="@{/admin/err.html}" target="myright">
-                        <li class="one"><span class="glyphicon glyphicon-bullhorn" style="color: white"></span>&nbsp;&nbsp;&nbsp;&nbsp;通知公告&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-                                class="glyphicon glyphicon-play" style="color: white;"></span></li>
-                    </a>
+                    <li class="two">
+                        <a href="#" th:href="@{/prod/split.action}" target="myRight">
+                            <span class="glyphicon glyphicon-book"></span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;商品管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="glyphicon glyphicon-play"></span>
+                        </a>
+                    </li>
+                    <li class="one">
+                        <a href="#" th:href="@{/error.html}" target="myRight">
+                            <span class="glyphicon glyphicon-sort"></span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;订单管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="glyphicon glyphicon-play"></span>
+                        </a>
+                    </li>
+                    <li class="one">
+                        <a href="#" th:href="@{/error.html}" target="myRight">
+                            <span class="glyphicon glyphicon-user"></span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;用户管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="glyphicon glyphicon-play"></span>
+                        </a>
+                    </li>
+                    <li class="one">
+                        <a href="#" th:href="@{/error.html}" target="myRight">
+                            <span class="glyphicon glyphicon-bullhorn"></span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;通知公告&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="glyphicon glyphicon-play"></span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
-        <!--下部分右边-->
+        下部分右边
         <div id="bright">
-            <iframe frameborder="0" scrolling="no" name="myright" width="1235px" height="700px"></iframe>
+            <iframe frameborder="0" scrolling="no" name="myRight" width="1235px" height="700px"></iframe>
         </div>
     </div>
 </div>

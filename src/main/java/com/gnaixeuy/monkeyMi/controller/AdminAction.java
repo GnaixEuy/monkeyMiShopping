@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * <img src="http://blog.GnaixEuy.cn/wp-content/uploads/2021/08/bug.jpeg"/>
  * <p>admin业务控制器</p>
@@ -22,23 +24,24 @@ public class AdminAction {
 	AdminService adminService;
 
 	@RequestMapping(value = {"login", "login.action"})
-	public String login(String name, String pwd) {
-		System.out.println(name);
+	public String login(HttpServletRequest request, String name, String pwd) {
 		if (name == null || pwd == null) {
-			System.out.println(name+pwd+"重新登");
-			return "/admin/login.html";
+			return "/admin/login";
 		}
-		System.out.println("到这了");
-		Admin admin = this.adminService.login(name,pwd);
-		System.out.println("到这了2");
+		Admin admin = this.adminService.login(name, pwd);
 		if (admin != null) {
-			System.out.println("登入成功");
-			System.out.println(admin.getaName());
-			System.out.println(admin.getaPass());
-			return "/admin/mian.html";
+			System.out.println("用户登入:" + admin.getaName() + "    " + admin.getaPass());
+			request.getSession().setAttribute("admin", admin);
+			return "/admin/main";
 		} else {
-			System.out.println("到这了3");
-			return "/admin/login.html";
+			return "/admin/login";
 		}
 	}
+
+	@RequestMapping(value = {"register", "register.action"})
+	public String register() {
+		//注册业务待补充
+		return "/admin/register";
+	}
+
 }

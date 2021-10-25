@@ -35,12 +35,8 @@ public class AdminServiceImpl implements AdminService {
 		final AdminExample.Criteria criteria = adminExample.createCriteria().andANameEqualTo(name);
 		final List<Admin> admins = this.adminMapper.selectByExample(adminExample);
 		if (admins.size() > 0) {
-			System.out.println("list size:" + admins.size());
 			final Admin admin = admins.get(0);
 			final String miPwd = MD5Util.getMD5(pwd);
-			System.out.println("admin.getaName() = " + admin.getaName());
-			System.out.println("admin.getaPass() = " + admin.getaPass());
-			System.out.println("miPwd = " + miPwd);
 			if (miPwd != null && miPwd.equals(admin.getaPass())) {
 				return admin;
 			}

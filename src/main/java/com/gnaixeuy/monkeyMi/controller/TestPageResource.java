@@ -16,33 +16,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TestPageResource {
 
 	@RequestMapping(value = "/test_err.html")
-	public String toErro() {
-		return "/admin/err.html";
+	public String toError() {
+		return "error";
 	}
 
 	@RequestMapping(value = "/test_addProduct.html")
 	public String toIndex() {
-		return "/admin/addproduct.html";
+		return "/admin/addproduct";
 	}
 
 	@RequestMapping(value = "/test_main.html")
 	public String toMain() {
-		return "/admin/main.html";
+		return "/admin/main";
 	}
 
 	@RequestMapping(value = "/test_login.html")
-	public String toLogin(){
-		return "/admin/login.html";
+	public String toLogin() {
+		return "/admin/login";
 	}
 
 	@RequestMapping(value = "/test_register.html")
-	public String toRegist(){
-		return "/admin/register.html";
+	public String toRegist() {
+		return "/admin/register";
 	}
 
 	@RequestMapping(value = "/test_update.html")
-	public String toUpdate(){
-		return "/admin/update.html";
+	public String toUpdate() {
+		return "/admin/update";
 	}
 
 }

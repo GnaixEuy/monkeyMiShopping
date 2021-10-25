@@ -24,6 +24,7 @@ spring:
     check-template: true
     prefix: classpath:/templates
     encoding: UTF-8
+    suffix: .html
   banner:
     charset: utf-8
 
