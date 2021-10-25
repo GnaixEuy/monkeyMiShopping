@@ -16,4 +16,6 @@ public interface AdminService {
 	 * @return loginState
 	 */
 	Admin login(String name, String pwd);
+
+	Admin login(Integer id);
 }

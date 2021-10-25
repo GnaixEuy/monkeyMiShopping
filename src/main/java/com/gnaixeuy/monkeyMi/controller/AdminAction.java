@@ -25,12 +25,19 @@ public class AdminAction {
 	public String login(String name, String pwd) {
 		System.out.println(name);
 		if (name == null || pwd == null) {
+			System.out.println(name+pwd+"重新登");
 			return "/admin/login.html";
 		}
-		final Admin admin = this.adminService.login(name, pwd);
+		System.out.println("到这了");
+		Admin admin = this.adminService.login(1);
+		System.out.println("到这了2");
 		if (admin != null) {
+			System.out.println("登入成功");
+			System.out.println(admin.getaName());
+			System.out.println(admin.getaPass());
 			return "/admin/mian.html";
 		} else {
+			System.out.println("到这了3");
 			return "/admin/login.html";
 		}
 	}

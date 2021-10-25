@@ -44,4 +44,14 @@ public class AdminServiceImpl implements AdminService {
 		}
 		return null;
 	}
+
+	@Override
+	public Admin login(Integer id){
+		System.out.println(this.adminMapper +"mapper被填充");
+		final Admin admin = this.adminMapper.selectByPrimaryKey(id);
+		System.out.println(admin.getaName());
+		System.out.println(admin.getaPass());
+		return admin;
+	}
+
 }
