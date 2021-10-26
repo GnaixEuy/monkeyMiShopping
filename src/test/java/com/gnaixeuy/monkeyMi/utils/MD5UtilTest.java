@@ -13,7 +13,7 @@ public class MD5UtilTest {
 
 	@Test
 	public void testMD5Encryption(){
-		String password = "000000";
+		String password = "root";
 		System.out.println("password = " + password);
 		String encryptionPassword = MD5Util.getMD5(password);
 		System.out.println("encryptionPassword = " + encryptionPassword);
