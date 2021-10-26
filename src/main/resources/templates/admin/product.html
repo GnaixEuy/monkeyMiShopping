@@ -102,7 +102,7 @@
                             pNumber
                         </td>
                         <td>
-                            <button type="button" class="btn btn-info " onclick="one([[${p.pId}]], [[${pb.pageNum}]])">
+                            <button type="button" class="btn btn-info "  onclick="one([[${p.pId}]], [[${pb.pageNum}]])">
                                 编辑
                             </button>
                             <button type="button" class="btn btn-warning" id="mydel" onclick="del([[${p.pId}]], [[${pb.pageNum}]])">
@@ -113,15 +113,15 @@
                 </div>
             </table>
             <!--分页栏-->
-<!--            <div id="bottom">-->
-<!--                <div>-->
-<!--                    <nav aria-label="..." style="text-align:center;">-->
-<!--                        <ul class="pagination">-->
-<!--                            <li>-->
-<!--                                <a href="javascript:ajaxsplit(${pb.prePage})" aria-label="Previous">-->
+            <div id="bottom">
+                <div>
+                    <nav aria-label="..." style="text-align:center;">
+                        <ul class="pagination">
+                            <li>
+                                <a href="javascript:ajaxsplit(${pb.prePage})" aria-label="Previous">
 
-<!--                                    <span aria-hidden="true">«</span></a>-->
-<!--                            </li>-->
+                                    <span aria-hidden="true">«</span></a>
+                            </li>
 <!--                            <c:forEach begin="1" end="${pb.pages}" var="i">-->
 <!--                                <c:if test="${pb.pageNum==i}">-->
 <!--                                    <li>-->
@@ -135,12 +135,12 @@
 <!--                                    </li>-->
 <!--                                </c:if>-->
 <!--                            </c:forEach>-->
-<!--                            <li>-->
-<!--                                <a href="javascript:ajaxsplit(${pb.nextPage})" aria-label="Next">-->
-<!--                                    <span aria-hidden="true">»</span></a>-->
-<!--                            </li>-->
-<!--                            <li style=" margin-left:150px;color: #0e90d2;height: 35px; line-height: 35px;">总共&nbsp;&nbsp;&nbsp;<font-->
-<!--                                    style="color:orange;">${pb.pages}</font>&nbsp;&nbsp;&nbsp;页&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+                            <li>
+                                <a href="javascript:ajaxsplit(${pb.nextPage})" aria-label="Next">
+                                    <span aria-hidden="true">»</span></a>
+                            </li>
+                            <li style=" margin-left:150px;color: #0e90d2;height: 35px; line-height: 35px;">总共&nbsp;&nbsp;&nbsp;<font
+                                    style="color:orange;">${pb.pages}</font>&nbsp;&nbsp;&nbsp;页&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <!--                                <c:if test="${pb.pageNum!=0}">-->
 <!--                                    当前&nbsp;&nbsp;&nbsp;<font-->
 <!--                                        style="color:orange;">${pb.pageNum}</font>&nbsp;&nbsp;&nbsp;页&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
@@ -149,11 +149,11 @@
 <!--                                    当前&nbsp;&nbsp;&nbsp;<font-->
 <!--                                        style="color:orange;">1</font>&nbsp;&nbsp;&nbsp;页&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
 <!--                                </c:if>-->
-<!--                            </li>-->
-<!--                        </ul>-->
-<!--                    </nav>-->
-<!--                </div>-->
-<!--            </div>-->
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
         </div>
 
         <div th:unless="${#httpServletRequest.getAttribute('list').size()!=0}">

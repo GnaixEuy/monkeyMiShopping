@@ -1,12 +1,16 @@
 #all{
     /*width:1270px;*/
     /*height: 680px;*/
+    width: auto;
+    height: auto;
     border:1px solid blue;
 }
 
 #all #left{
     /*width:200px;*/
     /*height: 680px;*/
+    width: auto;
+    height: auto;
     border: 1px solid blue;
     float: left;
     text-align: center;
@@ -15,6 +19,8 @@
 #all #right{
     /*width:1050px;*/
     /*height: 680px;*/
+    width: auto;
+    height: auto;
     border: 1px solid blue;
     float: left;
 }
