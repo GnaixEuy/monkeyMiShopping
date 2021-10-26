@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * <img src="http://blog.GnaixEuy.cn/wp-content/uploads/2021/08/bug.jpeg"/>
@@ -25,15 +26,17 @@ public class AdminAction {
 
 	@RequestMapping(value = {"login", "login.action"})
 	public String login(HttpServletRequest request, String name, String pwd) {
-		if (name == null || pwd == null) {
+		final HttpSession session = request.getSession();
+		if (name == null || pwd == null || "".equals(name.strip()) || "".equals(pwd.strip())) {
+			session.setAttribute("errMsg", "请输入完整用户名和密码");
 			return "/admin/login";
 		}
 		Admin admin = this.adminService.login(name, pwd);
 		if (admin != null) {
-			System.out.println("用户登入:" + admin.getaName() + "    " + admin.getaPass());
-			request.getSession().setAttribute("admin", admin);
+			session.setAttribute("admin", admin);
 			return "/admin/main";
 		} else {
+			session.setAttribute("errMsg", "用户名或密码不正确");
 			return "/admin/login";
 		}
 	}

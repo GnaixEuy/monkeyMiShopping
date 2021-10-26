@@ -157,7 +157,7 @@ button:hover {
   text-transform: uppercase;
   -webkit-text-fill-color: transparent;
   background: -webkit-linear-gradient(transparent, transparent);
-  background: url(../images/404bg.jpg) repeat 0px 0px;
+  background: url(../images/404bg.jpg) repeat 0 0;
   background-size: contain;
   background: -o-linear-gradient(transparent, transparent);
   -webkit-background-clip: text;
@@ -165,7 +165,7 @@ button:hover {
 
 .error-block .right-grid {
   text-align: center;
-  padding: 70px 0px;
+  padding: 70px 0;
 }
 
 .error-block h3 {
@@ -217,7 +217,7 @@ button:hover {
   }
 
   .error-block .right-grid {
-    padding: 60px 0px;
+    padding: 60px 0;
   }
 }
 
@@ -240,7 +240,7 @@ button:hover {
   }
 
   .error-block .right-grid {
-    padding: 40px 0px;
+    padding: 40px 0;
   }
 
   .error-block {
@@ -257,7 +257,7 @@ button:hover {
 @media (max-width: 350px) {
   .error-block a.home {
     padding: 10px 30px;
-    margin-right: 0px;
+    margin-right: 0;
   }
 }
 

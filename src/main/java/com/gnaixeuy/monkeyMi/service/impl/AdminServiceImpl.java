@@ -32,7 +32,7 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public Admin login(String name, String pwd) {
 		final AdminExample adminExample = new AdminExample();
-		final AdminExample.Criteria criteria = adminExample.createCriteria().andANameEqualTo(name);
+		adminExample.createCriteria().andANameEqualTo(name);
 		final List<Admin> admins = this.adminMapper.selectByExample(adminExample);
 		if (admins.size() > 0) {
 			final Admin admin = admins.get(0);

@@ -2,8 +2,8 @@ package com.gnaixeuy.monkeyMi.mapper;
 
 import com.gnaixeuy.monkeyMi.pojo.Admin;
 import com.gnaixeuy.monkeyMi.pojo.AdminExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import java.util.List;
  * MybatisGenerator生成的adminMapper
  * @author gnaixeuy
  */
-@Component
+@Mapper
 public interface AdminMapper {
     int countByExample(AdminExample example);
 

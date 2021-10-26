@@ -2,10 +2,12 @@ package com.gnaixeuy.monkeyMi.mapper;
 
 import com.gnaixeuy.monkeyMi.pojo.ProductInfo;
 import com.gnaixeuy.monkeyMi.pojo.ProductInfoExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+@Mapper
 public interface ProductInfoMapper {
     int countByExample(ProductInfoExample example);
 

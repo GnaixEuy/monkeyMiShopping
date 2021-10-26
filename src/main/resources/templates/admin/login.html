@@ -21,8 +21,8 @@
                     <td class="td1">用户名：</td>
                     <td>
                         <label>
-                        <input type="text" value="admin" placeholder="Username" class="td2" name="name">
-                    </label>
+                            <input type="text" value="" placeholder="Username" class="td2" name="name">
+                        </label>
                     </td>
                 </tr>
                 <tr>
@@ -33,7 +33,7 @@
                     <td class="td1">密码：</td>
                     <td>
                         <label>
-                            <input type="password" value="000000" placeholder="Password" class="td2" name="pwd">
+                            <input type="password" value="" placeholder="Password" class="td2" name="pwd">
                         </label>
                     </td>
                 </tr>
@@ -45,15 +45,36 @@
                     <td></td>
                     <td>
                         <input type="submit" value="登录" class="td3">
-                        <a th:href="@{/admin/register}"><input type="button" value="注册" class="td3	"></a>
+                        <a th:href="@{/admin/register}">
+                            <input type="button" value="注册" class="td3	">
+                        </a>
                     </td>
                 </tr>
             </table>
         </form>
         <!--/*@thymesVar id="errMsg" type="java.lang.String"*/-->
-        <div th:text="${errMsg}"></div>
+        <p th:text="${session.errMsg}" id="tip">tip:</p>
     </div>
 </div>
 </body>
+<script>
+    $("#name").blur(function () {
+        alert('jin')
+        if ($('#name').val() === "" || $('#pwd').val() === "") {
+            $('#tip').css("color", "red")
+        } else {
+            $('#tip').hide()
+        }
+    })
 
+    $("#pwd").blur(function () {
+        alert('jin')
+        if ($('#name').val() === "" || $('#pwd').val() === "") {
+            $('#tip').css("color", "red")
+        } else {
+            $('#tip').hide()
+        }
+
+    })
+</script>
 </html>
