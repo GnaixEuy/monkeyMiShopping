@@ -3,9 +3,15 @@ package com.gnaixeuy.monkeyMi.mapper;
 import com.gnaixeuy.monkeyMi.pojo.Admin;
 import com.gnaixeuy.monkeyMi.pojo.AdminExample;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+/**
+ * MybatisGenerator生成的adminMapper
+ * @author gnaixeuy
+ */
+@Component
 public interface AdminMapper {
     int countByExample(AdminExample example);
 
