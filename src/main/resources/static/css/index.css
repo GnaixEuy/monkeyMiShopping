@@ -4,14 +4,14 @@
 			}
 			
 			#all {
-				width: 1440px;
+				width: auto;
 				height: 760px;
 				/*border: 1px solid red;*/
 				margin: 0px auto;
 			}
 			
 			#all #top {
-				width: 1436px;
+				width: auto;
 				height: 60px;
 				/*border: 1px solid green;*/
 				background-color: #0099CC;
@@ -57,7 +57,7 @@
 			}
 			
 			#all #bottom {
-				width: 1440px;
+				width: auto;
 				height: 700px;
 				/*border: 1px solid red;*/
 			}
@@ -155,7 +155,7 @@
 		/*100%{transform: rotate(0deg);}*/
 	}
 			#all #bottom #bright {
-				width: 1235px;
+				width: auto;
 				height: 700px;
 				/*border: 1px solid blue;*/
 				float: left;
