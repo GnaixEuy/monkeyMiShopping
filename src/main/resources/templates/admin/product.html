@@ -85,7 +85,7 @@
                     <th>商品数量</th>
                     <th>操作</th>
                 </tr>
-                <div th:each="p : ${#httpServletRequest.getAttribute('list')}">
+                <div th:each="p : ${#httpServletRequest.getAttribute('info.list')}">
                     <!--/*@thymesVar id="p" type="com.gnaixeuy.monkeyMi.pojo.ProductInfo"*/-->
                     <tr>
                         <td valign="center" align="center">
@@ -118,7 +118,7 @@
                     <nav aria-label="..." style="text-align:center;">
                         <ul class="pagination">
                             <li>
-                                <a href="javascript:ajaxsplit(${pb.prePage})" aria-label="Previous">
+                                <a href="javascript:ajaxsplit(${info.prePage})" aria-label="Previous">
 
                                     <span aria-hidden="true">«</span></a>
                             </li>

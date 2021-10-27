@@ -41,3 +41,9 @@ server:
 mybatis:
   mapper-locations: classpath:com/gnaixeuy/monkeyMi/mapper/*.xml
   type-aliases-package: com.gnaixeuy.monkeymi.pojo
+
+#PageHelper
+pagehelper:
+  dialect: com.github.pagehelper.dialect.helper.MySqlDialect
+  reasonable: true
+  support-methods-arguments: true

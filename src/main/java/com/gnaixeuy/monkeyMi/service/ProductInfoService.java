@@ -1,5 +1,6 @@
 package com.gnaixeuy.monkeyMi.service;
 
+import com.github.pagehelper.PageInfo;
 import com.gnaixeuy.monkeyMi.pojo.ProductInfo;
 
 import java.util.List;
@@ -12,5 +13,9 @@ import java.util.List;
  * @see <a href='https://github.com/GnaixEuy'> GnaixEuy的GitHub </a>
  */
 public interface ProductInfoService {
+
 	List<ProductInfo> getAll();
+
+	PageInfo<ProductInfo> splitPage(Integer pageNum, Integer pageSize);
+
 }

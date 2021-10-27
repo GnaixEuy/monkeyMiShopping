@@ -1,5 +1,6 @@
 package com.gnaixeuy.monkeyMi.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.gnaixeuy.monkeyMi.pojo.ProductInfo;
 import com.gnaixeuy.monkeyMi.service.ProductInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,15 +21,27 @@ import java.util.List;
 @RequestMapping(value = {"/prod"})
 public class ProductInfoAction {
 
+	/**
+	 * 每个商品页面默认展示的商品条数
+	 */
+	private static final int PAGE_SHOW_SIZE = 5;
+
 	@Autowired
 	private ProductInfoService productInfoService;
 
 	@RequestMapping(value = "/getAll")
-	public String getAll(HttpServletRequest httpServletRequest){
-
+	public String getAll(HttpServletRequest httpServletRequest) {
 		final List<ProductInfo> all = this.productInfoService.getAll();
 		System.out.println(all.size());
 		httpServletRequest.setAttribute("list", all);
 		return "/admin/product";
 	}
+
+	@RequestMapping(value = "/splitPage")
+	public String splitPage(HttpServletRequest httpServletRequest) {
+		final PageInfo<ProductInfo> productInfoPageInfo = this.productInfoService.splitPage(1, ProductInfoAction.PAGE_SHOW_SIZE);
+		httpServletRequest.setAttribute("info", productInfoPageInfo);
+		return "/admin/product";
+	}
+
 }
