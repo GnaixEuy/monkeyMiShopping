@@ -78,7 +78,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from product_info
+    from xiaomissm.product_info
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -89,21 +89,21 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from product_info
+    from xiaomissm.product_info
     where p_id = #{pId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from product_info
+    delete from xiaomissm.product_info
     where p_id = #{pId,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.gnaixeuy.monkeyMi.pojo.ProductInfoExample" >
-    delete from product_info
+    delete from xiaomissm.product_info
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.gnaixeuy.monkeyMi.pojo.ProductInfo" >
-    insert into product_info (p_id, p_name, p_content, 
+    insert into xiaomissm.product_info (p_id, p_name, p_content,
       p_price, p_image, p_number, 
       type_id, p_date)
     values (#{pId,jdbcType=INTEGER}, #{pName,jdbcType=VARCHAR}, #{pContent,jdbcType=VARCHAR}, 
@@ -111,7 +111,7 @@
       #{typeId,jdbcType=INTEGER}, #{pDate,jdbcType=DATE})
   </insert>
   <insert id="insertSelective" parameterType="com.gnaixeuy.monkeyMi.pojo.ProductInfo" >
-    insert into product_info
+    insert into xiaomissm.product_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="pId != null" >
         p_id,

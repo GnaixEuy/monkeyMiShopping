@@ -64,7 +64,7 @@
     </div>
     <br>
     <div id="table">
-        <div id="top" th:if="${#httpServletRequest.getAttribute('list').size()!=0}">
+        <div id="top" th:if="${#httpServletRequest.getAttribute('info').getList().size()!=0}">
             <input type="checkbox" id="all" onclick="allClick()" style="margin-left: 50px">
             <label for="all">&nbsp;&nbsp;全选</label>
             <a th:href="@{/admin/addproduct.html}" href="addproduct.html">
@@ -85,7 +85,7 @@
                     <th>商品数量</th>
                     <th>操作</th>
                 </tr>
-                <div th:each="p : ${#httpServletRequest.getAttribute('info.list')}">
+                <div th:each="p : ${#httpServletRequest.getAttribute('info').getList()}">
                     <!--/*@thymesVar id="p" type="com.gnaixeuy.monkeyMi.pojo.ProductInfo"*/-->
                     <tr>
                         <td valign="center" align="center">
@@ -95,17 +95,19 @@
                         <td th:text="${p.getpContent()}"></td>
                         <td th:text="${p.getpPrice()}"></td>
                         <td>
-                            <img width="55px" height="45px" th:src="@{/image_big/{imgName}(imgName=${p.getpImage()})}" alt="image"
+                            <img width="55px" height="45px" th:src="@{/image_big/{imgName}(imgName=${p.getpImage()})}"
+                                 alt="image"
                                  src="#"/>
                         </td>
                         <td th:text="${p.getpNumber()}">
                             pNumber
                         </td>
                         <td>
-                            <button type="button" class="btn btn-info "  onclick="one([[${p.pId}]], [[${pb.pageNum}]])">
+                            <button type="button" class="btn btn-info " onclick="one([[${p.pId}]], [[${pb.pageNum}]])">
                                 编辑
                             </button>
-                            <button type="button" class="btn btn-warning" id="mydel" onclick="del([[${p.pId}]], [[${pb.pageNum}]])">
+                            <button type="button" class="btn btn-warning" id="mydel"
+                                    onclick="del([[${p.pId}]], [[${pb.pageNum}]])">
                                 删除
                             </button>
                         </td>
@@ -122,33 +124,36 @@
 
                                     <span aria-hidden="true">«</span></a>
                             </li>
-<!--                            <c:forEach begin="1" end="${pb.pages}" var="i">-->
-<!--                                <c:if test="${pb.pageNum==i}">-->
-<!--                                    <li>-->
-<!--                                        <a href="javascript:ajaxsplit(${i})"-->
-<!--                                           style="background-color: grey">${i}</a>-->
-<!--                                    </li>-->
-<!--                                </c:if>-->
-<!--                                <c:if test="${pb.pageNum!=i}">-->
-<!--                                    <li>-->
-<!--                                        <a href="javascript:ajaxsplit(${i})">${i}</a>-->
-<!--                                    </li>-->
-<!--                                </c:if>-->
-<!--                            </c:forEach>-->
+                            <span th:each="i : ${#httpServletRequest.getAttribute('info').getPages()}">
+                                <span th:if="${#httpServletRequest.getAttribute('info').getPageNum} == i">
+                                    <li>
+                                        <a href="javascript:ajaxsplit(${i})" style="background-color: grey">
+                                            [[${i}]]
+                                        </a>
+                                    </li>
+                                </span>
+                            </span>
+                            <span th:if="${#httpServletRequest.getAttribute('info').getPageNum} != i">
+                                <li>
+                                    <a href="javascript:ajaxsplit(${i})">[[${i}]]</a>
+                                </li>
+                            </span>
                             <li>
-                                <a href="javascript:ajaxsplit(${pb.nextPage})" aria-label="Next">
+                                <a href="javascript:ajaxsplit([[${pb.nextPage}]])" aria-label="Next">
                                     <span aria-hidden="true">»</span></a>
                             </li>
-                            <li style=" margin-left:150px;color: #0e90d2;height: 35px; line-height: 35px;">总共&nbsp;&nbsp;&nbsp;<font
-                                    style="color:orange;">${pb.pages}</font>&nbsp;&nbsp;&nbsp;页&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<!--                                <c:if test="${pb.pageNum!=0}">-->
-<!--                                    当前&nbsp;&nbsp;&nbsp;<font-->
-<!--                                        style="color:orange;">${pb.pageNum}</font>&nbsp;&nbsp;&nbsp;页&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
-<!--                                </c:if>-->
-<!--                                <c:if test="${pb.pageNum==0}">-->
-<!--                                    当前&nbsp;&nbsp;&nbsp;<font-->
-<!--                                        style="color:orange;">1</font>&nbsp;&nbsp;&nbsp;页&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
-<!--                                </c:if>-->
+                            <li style=" margin-left:150px;color: #0e90d2;height: 35px; line-height: 35px;">总共&nbsp;&nbsp;&nbsp;
+                                <font style="color:orange;">
+                                    ${pb.pages}
+                                </font>&nbsp;&nbsp;&nbsp;页&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <!--                                <c:if test="${pb.pageNum!=0}">-->
+                                <!--                                    当前&nbsp;&nbsp;&nbsp;<font-->
+                                <!--                                        style="color:orange;">${pb.pageNum}</font>&nbsp;&nbsp;&nbsp;页&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+                                <!--                                </c:if>-->
+                                <!--                                <c:if test="${pb.pageNum==0}">-->
+                                <!--                                    当前&nbsp;&nbsp;&nbsp;<font-->
+                                <!--                                        style="color:orange;">1</font>&nbsp;&nbsp;&nbsp;页&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+                                <!--                                </c:if>-->
                             </li>
                         </ul>
                     </nav>
@@ -156,7 +161,7 @@
             </div>
         </div>
 
-        <div th:unless="${#httpServletRequest.getAttribute('list').size()!=0}">
+        <div th:unless="${#httpServletRequest.getAttribute('info').getList().size()!=0}">
             <h2 style="width:1200px; text-align: center;color: orangered;margin-top: 100px">暂时没有符合条件的商品！</h2>
         </div>
 

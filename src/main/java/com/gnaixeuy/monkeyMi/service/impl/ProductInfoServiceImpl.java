@@ -33,12 +33,17 @@ public class ProductInfoServiceImpl implements ProductInfoService {
 	@Override
 	public PageInfo<ProductInfo> splitPage(Integer pageNum, Integer pageSize) {
 
-		PageHelper.startPage(pageNum, pageSize);
-		final ProductInfoExample productInfoExample = new ProductInfoExample();
+		ProductInfoExample productInfoExample = new ProductInfoExample();
 		productInfoExample.setOrderByClause("p_id DESC");
 		//务必需要先设置startPage
-		final List<ProductInfo> productInfoList = this.productInfoMapper.selectByExample(productInfoExample);
-		return new PageInfo<>(productInfoList);
+		PageHelper.startPage(pageNum, pageSize);
+		List<ProductInfo> productInfoList = this.productInfoMapper.selectByExample(productInfoExample);
+		PageInfo<ProductInfo> productInfoPageInfo = new PageInfo<>(productInfoList);
+		System.out.println("当前页数 = " + productInfoPageInfo.getPageNum());
+		System.out.println("每页数量 = " + productInfoPageInfo.getPageSize());
+		System.out.println("总数量 = " + productInfoPageInfo.getSize());
+
+		return productInfoPageInfo;
 	}
 
 }

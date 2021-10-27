@@ -41,6 +41,7 @@ public class ProductInfoAction {
 	public String splitPage(HttpServletRequest httpServletRequest) {
 		final PageInfo<ProductInfo> productInfoPageInfo = this.productInfoService.splitPage(1, ProductInfoAction.PAGE_SHOW_SIZE);
 		httpServletRequest.setAttribute("info", productInfoPageInfo);
+
 		return "/admin/product";
 	}
 
