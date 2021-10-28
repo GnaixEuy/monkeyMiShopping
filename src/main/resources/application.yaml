@@ -47,4 +47,6 @@ pagehelper:
   dialect: com.github.pagehelper.dialect.helper.MySqlDialect
   reasonable: true
   support-methods-arguments: true
-  params: count=countSql
+  row-bounds-with-count: true
+  offset-as-page-num: true
+

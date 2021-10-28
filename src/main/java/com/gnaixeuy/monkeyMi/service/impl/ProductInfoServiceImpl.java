@@ -35,15 +35,9 @@ public class ProductInfoServiceImpl implements ProductInfoService {
 
 		ProductInfoExample productInfoExample = new ProductInfoExample();
 		productInfoExample.setOrderByClause("p_id DESC");
-		//务必需要先设置startPage
 		PageHelper.startPage(pageNum, pageSize);
 		List<ProductInfo> productInfoList = this.productInfoMapper.selectByExample(productInfoExample);
-		PageInfo<ProductInfo> productInfoPageInfo = new PageInfo<>(productInfoList);
-		System.out.println("当前页数 = " + productInfoPageInfo.getPageNum());
-		System.out.println("每页数量 = " + productInfoPageInfo.getPageSize());
-		System.out.println("总数量 = " + productInfoPageInfo.getSize());
-
-		return productInfoPageInfo;
+		return new PageInfo<>(productInfoList);
 	}
 
 }

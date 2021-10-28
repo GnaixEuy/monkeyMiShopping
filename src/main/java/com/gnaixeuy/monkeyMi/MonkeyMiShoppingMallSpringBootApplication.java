@@ -1,8 +1,10 @@
 package com.gnaixeuy.monkeyMi;
 
+import com.github.pagehelper.PageInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 /**
  * @author gnaixeuy
@@ -15,4 +17,11 @@ public class MonkeyMiShoppingMallSpringBootApplication {
 		SpringApplication.run(MonkeyMiShoppingMallSpringBootApplication.class, args);
 	}
 
+	@Bean(name = "pageHelper")
+	public PageInterceptor pageHelper() {
+		return new PageInterceptor();
+	}
+
 }
+
+

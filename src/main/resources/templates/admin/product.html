@@ -43,15 +43,16 @@
         <p>商品管理>商品列表</p>
     </div>
     <div id="condition" style="text-align: center">
-        <!--/*@thymesVar id="plist" type="java.util.List<com.gnaixeuy.monkeyMi.pojo.ProductType>"*/-->
         <form id="myform">
             <label for="pname">商品名称：</label>
             <input name="pname" id="pname">&nbsp;&nbsp;&nbsp;
             <label for="typeid">商品类型：</label>
             <select name="typeid" id="typeid">
                 <option value="-1">请选择</option>
-                <div th:each="pt : ${plist}">
-                    <option th:value="${pt.getTypeId()}" th:text="${pt.getTypeName()}"></option>
+                <!--/*@thymesVar id="info" type="com.github.pagehelper.PageInfo"*/-->
+                <div th:each="pt : ${info.getList()}">
+                    <!--/*@thymesVar id="pt" type="com.gnaixeuy.monkeyMi.pojo.ProductType"*/-->
+<!--                    <option th:value="${pt.getTypeId()}" th:text="${pt.getTypeName()}"></option>-->
                 </div>
             </select>&nbsp;&nbsp;&nbsp;
             <label for="lprice">价格：</label>
@@ -143,8 +144,9 @@
                                     <span aria-hidden="true">»</span></a>
                             </li>
                             <li style=" margin-left:150px;color: #0e90d2;height: 35px; line-height: 35px;">总共&nbsp;&nbsp;&nbsp;
-                                <font style="color:orange;">
-                                    ${pb.pages}
+                                <font style="color:orange;"
+                                      th:text="${#httpServletRequest.getAttribute('info').getPages()}">
+                                    nil
                                 </font>&nbsp;&nbsp;&nbsp;页&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <!--                                <c:if test="${pb.pageNum!=0}">-->
                                 <!--                                    当前&nbsp;&nbsp;&nbsp;<font-->

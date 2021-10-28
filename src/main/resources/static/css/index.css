@@ -4,14 +4,14 @@
 }
 
 #all {
-    width: auto;
+    width: 1440px;
     height: 760px;
     /*border: 1px solid red;*/
     margin: 0px auto;
 }
 
 #all #top {
-    width: auto;
+    width: 1436px;
     height: 60px;
     /*border: 1px solid green;*/
     background-color: #0099CC;
@@ -57,7 +57,7 @@
 }
 
 #all #bottom {
-    width: auto;
+    width: 1440px;
     height: 700px;
     /*border: 1px solid red;*/
 }
@@ -124,7 +124,6 @@
     text-align: center;
     color: white;
 }
-
 /*#363F4A*/
 
 #all #bottom #bleft #lbottom .one {
@@ -138,34 +137,25 @@
 #all #bottom #bleft #lbottom a {
     text-decoration: none;
 }
-
 /*background-color: #465260;*/
 
 #all #bottom #bleft #lbottom li:hover {
     background-color: #363F4A;
 }
-
-#all #bottom #bleft #lbottom #lts img:hover {
+#all #bottom #bleft #lbottom #lts img:hover{
     animation: play 5s linear infinite;
 }
 
-@keyframes play {
-    0% {
-        transform: rotate(0deg);
-    }
+@keyframes play{
+    0%{transform: rotate(0deg);}
     /*25%{transform: rotate(100deg);}*/
     /*50%{transform: scale(2);}*/
-    50% {
-        transform: rotate(180);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+    50%{transform: rotate(180);}
+    100%{transform: rotate(360deg);}
     /*100%{transform: rotate(0deg);}*/
 }
-
 #all #bottom #bright {
-    width: auto;
+    width: 1235px;
     height: 700px;
     /*border: 1px solid blue;*/
     float: left;
