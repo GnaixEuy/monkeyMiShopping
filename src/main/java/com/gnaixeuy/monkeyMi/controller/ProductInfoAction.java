@@ -6,8 +6,11 @@ import com.gnaixeuy.monkeyMi.service.ProductInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -40,12 +43,20 @@ public class ProductInfoAction {
 	@RequestMapping(value = "/splitPage")
 	public String splitPage(HttpServletRequest httpServletRequest) {
 		final PageInfo<ProductInfo> productInfoPageInfo = this.productInfoService.splitPage(1, ProductInfoAction.PAGE_SHOW_SIZE);
-		System.out.println("productInfoPageInfo.getPages() = " + productInfoPageInfo.getPages());
-		System.out.println("productInfoPageInfo.getPageNum() = " + productInfoPageInfo.getPageNum());
-
 		httpServletRequest.setAttribute("info", productInfoPageInfo);
-
 		return "/admin/product";
+	}
+
+	/**
+	 * ajax分页function
+	 *
+	 */
+	@ResponseBody
+	@RequestMapping(value = {"/ajaxSplit","/ajaxSplit.action"}, method = RequestMethod.POST )
+	public void ajaxSplit(int page, HttpSession session){
+		System.out.println(page);
+		final PageInfo<ProductInfo> productInfoPageInfo = this.productInfoService.splitPage(page, ProductInfoAction.PAGE_SHOW_SIZE);
+		session.setAttribute("info",productInfoPageInfo);
 	}
 
 }

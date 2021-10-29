@@ -13,8 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PageJumpAction {
 
-	@RequestMapping("errort")
+	@RequestMapping("Terror")
 	public String error(){
 		return "/admin/error";
 	}
+
 }
