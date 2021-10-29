@@ -40,6 +40,9 @@ public class ProductInfoAction {
 	@RequestMapping(value = "/splitPage")
 	public String splitPage(HttpServletRequest httpServletRequest) {
 		final PageInfo<ProductInfo> productInfoPageInfo = this.productInfoService.splitPage(1, ProductInfoAction.PAGE_SHOW_SIZE);
+		System.out.println("productInfoPageInfo.getPages() = " + productInfoPageInfo.getPages());
+		System.out.println("productInfoPageInfo.getPageNum() = " + productInfoPageInfo.getPageNum());
+
 		httpServletRequest.setAttribute("info", productInfoPageInfo);
 
 		return "/admin/product";
