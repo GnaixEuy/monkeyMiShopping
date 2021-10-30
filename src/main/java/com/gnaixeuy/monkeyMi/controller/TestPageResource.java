@@ -45,4 +45,6 @@ public class TestPageResource {
 		return "/admin/update";
 	}
 
+	@RequestMapping(value = "/test_product.html")
+	public String toProduct(){return "/admin/product";}
 }

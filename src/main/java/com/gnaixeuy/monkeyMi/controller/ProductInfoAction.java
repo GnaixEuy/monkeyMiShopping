@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -33,17 +32,17 @@ public class ProductInfoAction {
 	private ProductInfoService productInfoService;
 
 	@RequestMapping(value = "/getAll")
-	public String getAll(HttpServletRequest httpServletRequest) {
+	public String getAll(HttpSession session) {
 		final List<ProductInfo> all = this.productInfoService.getAll();
 		System.out.println(all.size());
-		httpServletRequest.setAttribute("list", all);
+		session.setAttribute("list", all);
 		return "/admin/product";
 	}
 
 	@RequestMapping(value = "/splitPage")
-	public String splitPage(HttpServletRequest httpServletRequest) {
+	public String splitPage(HttpSession session) {
 		final PageInfo<ProductInfo> productInfoPageInfo = this.productInfoService.splitPage(1, ProductInfoAction.PAGE_SHOW_SIZE);
-		httpServletRequest.setAttribute("info", productInfoPageInfo);
+		session.setAttribute("info", productInfoPageInfo);
 		return "/admin/product";
 	}
 
@@ -53,8 +52,7 @@ public class ProductInfoAction {
 	 */
 	@ResponseBody
 	@RequestMapping(value = {"/ajaxSplit","/ajaxSplit.action"}, method = RequestMethod.POST )
-	public void ajaxSplit(int page, HttpSession session){
-		System.out.println(page);
+	public void ajaxSplit(int page,HttpSession session){
 		final PageInfo<ProductInfo> productInfoPageInfo = this.productInfoService.splitPage(page, ProductInfoAction.PAGE_SHOW_SIZE);
 		session.setAttribute("info",productInfoPageInfo);
 	}

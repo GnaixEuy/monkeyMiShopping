@@ -11,5 +11,5 @@
 * 2021年10月25日：完成了基本管理员登入功能，修复了页面错误，修复了MybatisGenerator错误配置文件生成不可用mapper的错误，修复mybatis和springboot的版本冲突问题
 * 2021年10月26日：修复了大量thymeleaf用法错误，基本构建了product功能，引入pagehelper插件
 * 2021年10月27日：pageHelper存在bug 待排查错误
-
+* 2021年10月29，30日：修复了分页查询的thymeleaf bug，完善了部分分页查询功能
 

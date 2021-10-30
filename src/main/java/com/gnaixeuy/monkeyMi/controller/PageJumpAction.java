@@ -18,4 +18,7 @@ public class PageJumpAction {
 		return "/admin/error";
 	}
 
+	@RequestMapping(value = {"to_product.html"})
+	public String toProduct(){return "/admin/product";}
+
 }
