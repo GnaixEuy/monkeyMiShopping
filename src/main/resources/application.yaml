@@ -27,6 +27,11 @@ spring:
     suffix: .html
   banner:
     charset: utf-8
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+      enabled: true
 
 server:
   port: 8888

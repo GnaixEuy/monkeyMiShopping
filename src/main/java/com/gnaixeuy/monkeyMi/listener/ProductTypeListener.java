@@ -16,8 +16,8 @@ import java.util.List;
  * @date 2021/10/31
  * @see <a href='https://github.com/GnaixEuy'> GnaixEuy的GitHub </a>
  */
-//@WebListener
 @Component
+//@WebListener
 public class ProductTypeListener implements ServletContextListener {
 
 	@Autowired
