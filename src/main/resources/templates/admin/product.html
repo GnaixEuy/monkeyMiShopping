@@ -40,6 +40,10 @@
 <!--/*@thymesVar id="info" type="com.github.pagehelper.PageInfo<>"*/-->
 <!--/*@thymesVar id="p" type="com.gnaixeuy.monkeyMi.pojo.ProductInfo"*/-->
 <!--/*@thymesVar id="getPrePage" type="java.lang.Integer"*/-->
+<!--/*@thymesVar id="ptList" type="java.util.List"*/-->
+<!--/*@thymesVar id="pt" type="com.gnaixeuy.monkeyMi.pojo.ProductType"*/-->
+<!--/*@thymesVar id="#httpSession.getAttribute('info')" type="com.github.pagehelper.PageInfo<>"*/-->
+
 <body>
 <div id="brall">
     <div id="nav">
@@ -51,10 +55,12 @@
             <input name="pname" id="pname">&nbsp;&nbsp;&nbsp;
             <label for="typeid">商品类型：</label>
             <select name="typeid" id="typeid">
-                <option value="-1">请选择</option>
-                <!--                <div th:each="pt : ${pb.getList()}">-->
-                <!--                    <option th:value="${pt.getTypeId()}" th:text="${pt.getTypeName()}"></option>-->
-    </div>
+                <option value="-1">
+                    请选择
+                </option>
+                <option th:each="pt : ${#servletContext.getAttribute('ptList')}" th:value="${pt.getTypeId()}" th:text="${pt.getTypeName()}">
+                    type
+                </option>
     </select>&nbsp;&nbsp;&nbsp;
     <label for="lprice">价格：</label>
     <input name="lprice" id="lprice">
@@ -69,7 +75,7 @@
     <div id="top" th:if="${#httpSession.getAttribute('info').getList().size() != 0}">
         <input type="checkbox" id="all" onclick="allClick()" style="margin-left: 50px">
         <label for="all">&nbsp;&nbsp;全选</label>
-        <a th:href="@{/admin/addproduct.html}" href="addproduct.html">
+        <a th:href="@{/to_addProduct.html}" href="addproduct.html">
             <input type="button" class="btn btn-warning" id="btn1" value="新增商品">
         </a>
         <input type="button" class="btn btn-warning" id="btn1" value="批量删除"

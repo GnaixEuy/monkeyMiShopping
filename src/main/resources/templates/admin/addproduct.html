@@ -40,12 +40,12 @@
         });
     }
 </script>
+<!--/*@thymesVar id="type" type="com.gnaixeuy.monkeyMi.pojo.ProductType"*/-->
 <body>
 <div id="addAll">
     <div id="nav">
         <p>商品管理>新增商品</p>
     </div>
-
     <div id="table">
         <form th:action="@{/prod/save.action}" action="#" enctype="multipart/form-data"
               method="post" id="myform">
@@ -108,10 +108,14 @@
                 <tr>
                     <td class="one">类别</td>
                     <td>
-                        <!--/*@thymesVar id="ptlist" type="com.gnaixeuy.mokeymi"*/-->
                         <label>
-                            <select name="typeId" th:each="type : ${ptlist}">
-                                <option th:value="${type.typeId}">${type.typeName}</option>
+                            <select name="typeId" >
+                                <option value="-1">
+                                    请选择
+                                </option>
+                                <option th:each="type : ${#servletContext.getAttribute('ptList')}" th:value="${type.getTypeId()}" th:text="${type.getTypeName()}">
+                                    type
+                                </option>
                             </select>
                         </label>
                     </td>
