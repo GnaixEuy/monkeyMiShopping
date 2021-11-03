@@ -40,6 +40,7 @@ server:
       charset: UTF-8
       force: true
       enabled: true
+
   tomcat:
     uri-encoding: utf-8
 
@@ -54,4 +55,5 @@ pagehelper:
   support-methods-arguments: true
   row-bounds-with-count: true
   offset-as-page-num: true
+
 

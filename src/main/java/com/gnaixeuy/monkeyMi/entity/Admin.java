@@ -1,4 +1,4 @@
-package com.gnaixeuy.monkeyMi.pojo;
+package com.gnaixeuy.monkeyMi.entity;
 
 public class Admin {
     private Integer aId;

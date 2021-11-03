@@ -1,6 +1,6 @@
 package com.gnaixeuy.monkeyMi.controller;
 
-import com.gnaixeuy.monkeyMi.pojo.Admin;
+import com.gnaixeuy.monkeyMi.entity.Admin;
 import com.gnaixeuy.monkeyMi.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

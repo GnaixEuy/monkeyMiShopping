@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.gnaixeuy.monkeyMi.mapper.AdminMapper" >
-  <resultMap id="BaseResultMap" type="com.gnaixeuy.monkeyMi.pojo.Admin" >
+  <resultMap id="BaseResultMap" type="com.gnaixeuy.monkeyMi.entity.Admin" >
     <id column="a_id" property="aId" jdbcType="INTEGER" />
     <result column="a_name" property="aName" jdbcType="VARCHAR" />
     <result column="a_pass" property="aPass" jdbcType="VARCHAR" />
@@ -97,13 +97,13 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.gnaixeuy.monkeyMi.pojo.Admin" >
+  <insert id="insert" parameterType="com.gnaixeuy.monkeyMi.entity.Admin" >
     insert into admin (a_id, a_name, a_pass
       )
     values (#{aId,jdbcType=INTEGER}, #{aName,jdbcType=VARCHAR}, #{aPass,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.gnaixeuy.monkeyMi.pojo.Admin" >
+  <insert id="insertSelective" parameterType="com.gnaixeuy.monkeyMi.entity.Admin" >
     insert into admin
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="aId != null" >
@@ -160,7 +160,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.gnaixeuy.monkeyMi.pojo.Admin" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.gnaixeuy.monkeyMi.entity.Admin" >
     update admin
     <set >
       <if test="aName != null" >
@@ -172,7 +172,7 @@
     </set>
     where a_id = #{aId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.gnaixeuy.monkeyMi.pojo.Admin" >
+  <update id="updateByPrimaryKey" parameterType="com.gnaixeuy.monkeyMi.entity.Admin" >
     update admin
     set a_name = #{aName,jdbcType=VARCHAR},
       a_pass = #{aPass,jdbcType=VARCHAR}

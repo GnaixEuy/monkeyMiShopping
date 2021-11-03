@@ -1,6 +1,6 @@
 package com.gnaixeuy.monkeyMi.listener;
 
-import com.gnaixeuy.monkeyMi.pojo.ProductType;
+import com.gnaixeuy.monkeyMi.entity.ProductType;
 import com.gnaixeuy.monkeyMi.service.ProductTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

@@ -1,7 +1,7 @@
 package com.gnaixeuy.monkeyMi.service.impl;
 
+import com.gnaixeuy.monkeyMi.entity.Admin;
 import com.gnaixeuy.monkeyMi.mapper.AdminMapper;
-import com.gnaixeuy.monkeyMi.pojo.Admin;
 import com.gnaixeuy.monkeyMi.pojo.AdminExample;
 import com.gnaixeuy.monkeyMi.service.AdminService;
 import com.gnaixeuy.monkeyMi.utils.MD5Util;

@@ -1,6 +1,6 @@
 package com.gnaixeuy.monkeyMi.mapper;
 
-import com.gnaixeuy.monkeyMi.pojo.ProductType;
+import com.gnaixeuy.monkeyMi.entity.ProductType;
 import com.gnaixeuy.monkeyMi.pojo.ProductTypeExample;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

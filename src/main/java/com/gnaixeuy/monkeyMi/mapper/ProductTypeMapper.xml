@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.gnaixeuy.monkeyMi.mapper.ProductTypeMapper" >
-  <resultMap id="BaseResultMap" type="com.gnaixeuy.monkeyMi.pojo.ProductType" >
+  <resultMap id="BaseResultMap" type="com.gnaixeuy.monkeyMi.entity.ProductType" >
     <id column="type_id" property="typeId" jdbcType="INTEGER" />
     <result column="type_name" property="typeName" jdbcType="VARCHAR" />
   </resultMap>
@@ -96,11 +96,11 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.gnaixeuy.monkeyMi.pojo.ProductType" >
+  <insert id="insert" parameterType="com.gnaixeuy.monkeyMi.entity.ProductType" >
     insert into product_type (type_id, type_name)
     values (#{typeId,jdbcType=INTEGER}, #{typeName,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.gnaixeuy.monkeyMi.pojo.ProductType" >
+  <insert id="insertSelective" parameterType="com.gnaixeuy.monkeyMi.entity.ProductType" >
     insert into product_type
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="typeId != null" >
@@ -147,7 +147,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.gnaixeuy.monkeyMi.pojo.ProductType" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.gnaixeuy.monkeyMi.entity.ProductType" >
     update product_type
     <set >
       <if test="typeName != null" >
@@ -156,7 +156,7 @@
     </set>
     where type_id = #{typeId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.gnaixeuy.monkeyMi.pojo.ProductType" >
+  <update id="updateByPrimaryKey" parameterType="com.gnaixeuy.monkeyMi.entity.ProductType" >
     update product_type
     set type_name = #{typeName,jdbcType=VARCHAR}
     where type_id = #{typeId,jdbcType=INTEGER}

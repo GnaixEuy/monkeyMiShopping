@@ -1,7 +1,7 @@
 package com.gnaixeuy.monkeyMi.service.impl;
 
+import com.gnaixeuy.monkeyMi.entity.ProductType;
 import com.gnaixeuy.monkeyMi.mapper.ProductTypeMapper;
-import com.gnaixeuy.monkeyMi.pojo.ProductType;
 import com.gnaixeuy.monkeyMi.pojo.ProductTypeExample;
 import com.gnaixeuy.monkeyMi.service.ProductTypeService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.gnaixeuy.monkeyMi.service;
 
-import com.gnaixeuy.monkeyMi.pojo.Admin;
+import com.gnaixeuy.monkeyMi.entity.Admin;
 
 /**
  * <img src="http://blog.GnaixEuy.cn/wp-content/uploads/2021/08/bug.jpeg"/>

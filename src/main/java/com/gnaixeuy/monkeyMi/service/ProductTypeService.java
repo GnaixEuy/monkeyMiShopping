@@ -1,6 +1,6 @@
 package com.gnaixeuy.monkeyMi.service;
 
-import com.gnaixeuy.monkeyMi.pojo.ProductType;
+import com.gnaixeuy.monkeyMi.entity.ProductType;
 
 import java.util.List;
 

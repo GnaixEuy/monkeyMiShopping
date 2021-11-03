@@ -1,6 +1,6 @@
 package com.gnaixeuy.monkeyMi.mapper;
 
-import com.gnaixeuy.monkeyMi.pojo.Admin;
+import com.gnaixeuy.monkeyMi.entity.Admin;
 import com.gnaixeuy.monkeyMi.pojo.AdminExample;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

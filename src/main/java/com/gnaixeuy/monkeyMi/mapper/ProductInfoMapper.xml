@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.gnaixeuy.monkeyMi.mapper.ProductInfoMapper" >
-  <resultMap id="BaseResultMap" type="com.gnaixeuy.monkeyMi.pojo.ProductInfo" >
+  <resultMap id="BaseResultMap" type="com.gnaixeuy.monkeyMi.entity.ProductInfo" >
     <id column="p_id" property="pId" jdbcType="INTEGER" />
     <result column="p_name" property="pName" jdbcType="VARCHAR" />
     <result column="p_content" property="pContent" jdbcType="VARCHAR" />
@@ -102,7 +102,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.gnaixeuy.monkeyMi.pojo.ProductInfo" >
+  <insert id="insert" parameterType="com.gnaixeuy.monkeyMi.entity.ProductInfo" >
     insert into xiaomissm.product_info (p_id, p_name, p_content,
       p_price, p_image, p_number, 
       type_id, p_date)
@@ -110,7 +110,7 @@
       #{pPrice,jdbcType=INTEGER}, #{pImage,jdbcType=VARCHAR}, #{pNumber,jdbcType=INTEGER}, 
       #{typeId,jdbcType=INTEGER}, #{pDate,jdbcType=DATE})
   </insert>
-  <insert id="insertSelective" parameterType="com.gnaixeuy.monkeyMi.pojo.ProductInfo" >
+  <insert id="insertSelective" parameterType="com.gnaixeuy.monkeyMi.entity.ProductInfo" >
     insert into xiaomissm.product_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="pId != null" >
@@ -217,7 +217,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.gnaixeuy.monkeyMi.pojo.ProductInfo" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.gnaixeuy.monkeyMi.entity.ProductInfo" >
     update product_info
     <set >
       <if test="pName != null" >
@@ -244,7 +244,7 @@
     </set>
     where p_id = #{pId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.gnaixeuy.monkeyMi.pojo.ProductInfo" >
+  <update id="updateByPrimaryKey" parameterType="com.gnaixeuy.monkeyMi.entity.ProductInfo" >
     update product_info
     set p_name = #{pName,jdbcType=VARCHAR},
       p_content = #{pContent,jdbcType=VARCHAR},

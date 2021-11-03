@@ -1,7 +1,7 @@
 package com.gnaixeuy.monkeyMi.service;
 
 import com.github.pagehelper.PageInfo;
-import com.gnaixeuy.monkeyMi.pojo.ProductInfo;
+import com.gnaixeuy.monkeyMi.entity.ProductInfo;
 
 import java.util.List;
 

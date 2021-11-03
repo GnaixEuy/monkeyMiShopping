@@ -18,15 +18,16 @@
             secureuri: false,//一般设置为false
             fileElementId: 'pImage',//文件上传控件的id属性  <input type="file" id="pImage" name="pImage" />
             dataType: 'json',//返回值类型 一般设置为json
-            success: function (obj) //服务器成功响应处理函数
+            success: function (object) //服务器成功响应处理函数
             {
                 var imgDiv = $('#imgDiv')
-                alert(obj);
+                alert(object.imageUrl);
+                console.log(object.imageUrl)
                 imgDiv.empty();  //清空原有数据
                 //创建img 标签对象
                 let imgObj = $("<img alt='photo'>");
                 //给img标签对象追加属性
-                imgObj.attr("src", "/image_big/" + obj.imgurl);
+                imgObj.attr("src", '/image_big/' + object.imageUrl);
                 imgObj.attr("width", "100px");
                 imgObj.attr("height", "100px");
                 //将图片img标签追加到imgDiv末尾
@@ -40,7 +41,7 @@
         });
     }
 </script>
-<!--/*@thymesVar id="type" type="com.gnaixeuy.monkeyMi.pojo.ProductType"*/-->
+<!--/*@thymesVar id="type" type="com.gnaixeuy.monkeyMi.entity.ProductType"*/-->
 <body>
 <div id="addAll">
     <div id="nav">

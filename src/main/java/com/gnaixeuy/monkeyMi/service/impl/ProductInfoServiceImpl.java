@@ -2,8 +2,8 @@ package com.gnaixeuy.monkeyMi.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.gnaixeuy.monkeyMi.entity.ProductInfo;
 import com.gnaixeuy.monkeyMi.mapper.ProductInfoMapper;
-import com.gnaixeuy.monkeyMi.pojo.ProductInfo;
 import com.gnaixeuy.monkeyMi.pojo.ProductInfoExample;
 import com.gnaixeuy.monkeyMi.service.ProductInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
