@@ -8,6 +8,7 @@ import com.gnaixeuy.monkeyMi.service.ProductInfoService;
 import com.gnaixeuy.monkeyMi.utils.FileNameUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -36,6 +38,8 @@ public class ProductInfoAction {
 	 */
 	private static final int PAGE_SHOW_SIZE = 5;
 
+	private String saveFileName = "";
+
 	@Autowired
 	private ProductInfoService productInfoService;
 
@@ -47,7 +51,7 @@ public class ProductInfoAction {
 		return "/admin/product";
 	}
 
-	@RequestMapping(value = "/splitPage")
+	@RequestMapping(value = {"/splitPage","/splitPage.action"})
 	public String splitPage(HttpSession session) {
 		final PageInfo<ProductInfo> productInfoPageInfo = this.productInfoService.splitPage(1, ProductInfoAction.PAGE_SHOW_SIZE);
 		session.setAttribute("info", productInfoPageInfo);
@@ -72,25 +76,42 @@ public class ProductInfoAction {
 	public Object ajaxImg(MultipartFile pImage, HttpServletRequest request) {
 
 		//提取UUID + 上传土坯对后缀.jpeg
-		final String saveFileName = FileNameUtil.getUUIDFileName() + FileNameUtil.getFileType(Objects.requireNonNull(pImage.getOriginalFilename()));
+		saveFileName = FileNameUtil.getUUIDFileName() + FileNameUtil.getFileType(Objects.requireNonNull(pImage.getOriginalFilename()));
 		//得到项目中图片存储对路径
-		final String outPath = System.getProperty("user.dir")+"/target/classes/static/image_big";
+		final String outPath = System.getProperty("user.dir") + "/target/classes/static/image_big";
 //		final String realPath = System.getProperty("user.dir")+"/src/main/resources/static/image_big";
 		//转存
 		final String imageOutPath = outPath + File.separator + saveFileName;
 //		final String imagePath = realPath + File.separator + saveFileName;
 		try {
 			pImage.transferTo(new File(imageOutPath));
-//			pImage.transferTo(new File(imagePath));
-			System.out.println(imageOutPath);
-
-			final String imageUrl = new ObjectMapper().writeValueAsString(new ProductImage(saveFileName));
-			System.out.println(imageUrl);
-			return imageUrl;
+			/* pImage.transferTo(new File(imagePath)); */
+			return new ObjectMapper().writeValueAsString(new ProductImage(saveFileName));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
+
+	@RequestMapping(value = {"addProduct.action"})
+	public String addProduct(ProductInfo productInfo,BindingResult bindingResult ,HttpServletRequest request) {
+		productInfo.setpImage(saveFileName);
+		productInfo.setpDate(new Date());
+
+		int ret = -1;
+		try {
+			ret = this.productInfoService.insertProduct(productInfo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		if (ret > 0 ){
+			request.setAttribute("msg","添加商品成功");
+		}else {
+			request.setAttribute("msg","添加商品失败");
+		}
+		this.saveFileName = "";
+		return "forward://prod/splitPage";
+	}
+
 
 }

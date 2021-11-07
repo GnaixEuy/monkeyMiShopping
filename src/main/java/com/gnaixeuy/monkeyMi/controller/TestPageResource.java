@@ -22,7 +22,7 @@ public class TestPageResource {
 
 	@RequestMapping(value = "/test_addProduct.html")
 	public String toIndex() {
-		return "/admin/addproduct";
+		return "addProduct";
 	}
 
 	@RequestMapping(value = "/test_main.html")

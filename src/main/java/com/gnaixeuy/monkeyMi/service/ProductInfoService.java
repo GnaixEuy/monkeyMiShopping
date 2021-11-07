@@ -18,4 +18,6 @@ public interface ProductInfoService {
 
 	PageInfo<ProductInfo> splitPage(Integer pageNum, Integer pageSize);
 
+	int insertProduct(ProductInfo productInfo);
+
 }

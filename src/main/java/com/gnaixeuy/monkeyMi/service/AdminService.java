@@ -18,4 +18,5 @@ public interface AdminService {
 	Admin login(String name, String pwd);
 
 	Admin login(Integer id);
+
 }

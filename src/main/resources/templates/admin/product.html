@@ -2,11 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <!--    <script type="text/javascript" th:inline="javascript">-->
-    <!--        if ([[${msg}]] != "") {-->
-    <!--            alert([[${msg}]]);-->
-    <!--        }-->
-    <!--    </script>-->
+        <script type="text/javascript" th:inline="javascript">
+            if ( [[${msg}]].indexOf("商品") && [[${msg}]] != "null") {
+                alert([[${msg}]]);
+            }
+        </script>
     <link rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
     <link rel="stylesheet" th:href="@{/css/bright.css}"/>
     <link rel="stylesheet" th:href="@{/css/addBook.css}"/>
@@ -75,7 +75,7 @@
     <div id="top" th:if="${#httpSession.getAttribute('info').getList().size() != 0}">
         <input type="checkbox" id="all" onclick="allClick()" style="margin-left: 50px">
         <label for="all">&nbsp;&nbsp;全选</label>
-        <a th:href="@{/to_addProduct.html}" href="addproduct.html">
+        <a th:href="@{/to_addProduct.html}" href="addProduct.html">
             <input type="button" class="btn btn-warning" id="btn1" value="新增商品">
         </a>
         <input type="button" class="btn btn-warning" id="btn1" value="批量删除"

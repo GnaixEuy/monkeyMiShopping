@@ -23,7 +23,7 @@ public class PageJumpAction {
 
 	@RequestMapping(value = {"to_addProduct.html"})
 	public String toAddProduct(){
-		return "/admin/addproduct";
+		return "/admin/addProduct";
 	}
 
 }
